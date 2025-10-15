@@ -7,10 +7,13 @@ Esta aplicación permite a los usuarios gestionar sus gastos personales. Incluye
 
 - Gastos: Se permiten crear, listar, editar y eliminar registros de datos, los cuales se clasifican en múltiples categorías.
 
-## Requisitos
+## Tecnologías
 - Java 21
 - Maven
 - MySQL
+- Spring Boot 3
+- Spring Data (Hibernate)
+- Spring Security + JWT
 
 ## Instalación
 1. Clonar repositorios
