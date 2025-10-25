@@ -33,19 +33,19 @@ public class AdminController {
     private ValidationErrorMapper validator;
 
     @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/list-user")
+    @GetMapping
     public ResponseEntity<List<User>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("/create-user")
+    @PostMapping
     public ResponseEntity<?> createUser(@Validated @RequestBody UserAdminDTO userDTO, BindingResult result) {
         return (result.hasFieldErrors()) ? validator.validation(result) : ResponseEntity.status(HttpStatus.CREATED).body(service.save(userDTO));
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping("/delete-user/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok(Map.of("message", "Se ha eliminado con exito el usuario con id " + id));

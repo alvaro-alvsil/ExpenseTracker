@@ -53,7 +53,7 @@ public class ExpenseController {
         return ResponseEntity.ok(appService.listAndFilter(username, startDate, endDate));
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<?> addExpense(@Validated(OnCreate.class) @RequestBody ExpenseDTO expenseDTO, BindingResult result) {
         if(result.hasFieldErrors()) {
             return validator.validation(result);
